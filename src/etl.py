@@ -1,5 +1,7 @@
 import pandas as pd
 
+from datetime import date
+
 from utils import data_from_series, read_yaml, remove_commas, remove_ne
 
 
