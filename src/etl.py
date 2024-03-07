@@ -5,7 +5,7 @@ from utils import data_from_series, read_yaml, remove_commas, remove_ne
 
 def extract():
     # Read yaml file containing the base url, and the series ID, transformation, and desired name in the df
-    settings = read_yaml("settings.yaml")
+    settings = read_yaml("src/settings.yaml")
     base_url = settings['base_url']
     series = settings['series']
 
@@ -31,7 +31,7 @@ def transform(df):
     """
 
     # Read the settings file to get the desired transformation for each series
-    settings = read_yaml("settings.yaml")
+    settings = read_yaml("src/settings.yaml")
     series = settings['series']
 
     for serie in series:
