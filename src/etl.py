@@ -32,6 +32,10 @@ def transform(df):
     maybe this step should be done later
     """
 
+    df['fecha'] = pd.to_datetime(df['fecha'], dayfirst=True)
+    df.sort_values(by=['fecha'], inplace=True)
+    df['fecha'] = df['fecha'].dt.strftime('%d/%m/%Y')
+
     # Read the settings file to get the desired transformation for each series
     settings = read_yaml("src/settings.yaml")
     series = settings['series']
@@ -43,11 +47,7 @@ def transform(df):
         # Remove commas used as digit group separator
         df[serie] = df[serie].transform(remove_ne)
         df[serie] = df[serie].transform(remove_commas)
-
-        df['fecha'] = pd.to_datetime(df['fecha'], dayfirst=True)
-        df.sort_values(by=['fecha'], inplace=True)
-        df['fecha'] = df['fecha'].dt.strftime('%d/%m/%Y')
-
+        
     return df
 
 
