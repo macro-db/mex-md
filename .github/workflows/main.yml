@@ -1,8 +1,6 @@
 name: generate csv
 
-on:
-  schedule:
-    - cron: '45 10 * * *'
+on: workflow_dispatch
 
 permissions:
   contents: write
