@@ -49,7 +49,7 @@ def transform(df):
 
 def load(df):
     today = date.today().strftime("%d_%m_%Y")
-    df.to_csv(f'/data/{today}.csv', index=False)
+    df.to_csv(f'data/{today}.csv', index=False)
 
 
 if __name__ == "__main__":
