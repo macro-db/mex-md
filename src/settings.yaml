@@ -1,0 +1,109 @@
+---
+base_url: https://www.banxico.org.mx/SieAPIRest/service/v1/series/
+series:
+   # Laboral:
+      # Salarios mínimos
+   - SL11298 # Salarios Mínimos General Pesos por día --> DUDA: Pesos o no
+      # Remuneraciones y productividad
+   - SL11453 # Remuneraciones Medias Reales por Persona Ocupada (Industria Manufacturera)
+   - SL11432 # Remuneraciones Medias Reales por Persona Ocupada (Comercio)
+      # Revisión de salarios contractuales
+   - SL136 # Número de empresas
+   - SL137 # Número de personas
+   - SL11138 # Salarios contractuales Revisiones salariales Número de trabajadores manufacturas
+   - SL11139 # Salarios contractuales Revisiones salariales Número de trabajadores otros sectores
+      # Tasas de desocupación
+   - SL1 # Tasas de desocupación abierta en áreas urbanas Total Porcentaje con respecto a la PEA
+
+   # Producción:
+      # Indicadores de la actividad industrial
+   - SR17531 # Indice de volumen Total
+   - SR17532 # Indice de volumen Minería
+   - SR17533 # Indice de volumen Electricidad Agua y Gas
+   - SR17534 # Indice de volumen Construcción
+   - SR17535 # Indice de volumen Manufactureras
+
+   # Encuestas Sobre las Expectativas de los Especialistas en Economía del Sector Privado Percepción del Entorno Económico
+   - SR15031 # % de respuestas Actualmente la economía está mejor que hace un año (% de respuestas) Sí
+   - SR15028 # % de respuestas Clima de negocios en los próximos 6 meses (% de respuestas) Mejorará
+
+
+   # Agregados monetarios
+   - SF311408 # Agregados Monetarios M1
+   - SF311418 # Agregados Monetarios M2
+   - SF311433 # Agregados Monetarios M3
+   - SF311438 # Agregados Monetarios M4
+
+   # Activos internacionales, crédito interno y base monetaria --> DUDA: Saldos o flujos acumulados
+   - SF29652 # Base Monetaria - Saldos
+   - SF29653 # Activos Internacionales Netos --> DUDA: Pesos o Dolares
+   - SF29655 # Crédito Interno Neto
+   - SF29656 # Reserva Internacional
+
+   # Tasas y precios de referencia
+     # Valores públicos --> DUDA: Tasas promedio ponderadas, o tasas promedio expresadas en por ciento anual
+   - SF4830 # Cetes a 28 días Tasa de rendimiento promedio ponderado, en por ciento anual
+   - SF4831 # Cetes a 91 días Tasa de rendimiento promedio ponderado, en por ciento anual
+   - SF4832 # Cetes a 182 días Tasa de rendimiento promedio ponderado, en por ciento anual
+   - SF4842 # Cetes a 364 días Tasa de rendimiento promedio ponderado, en por ciento anual
+   - SF18609 # Sobretasa de Bondes a 5 años (1820 días) Tasa de rendimiento promedio ponderado, en por ciento anual
+   - SF18606 # Sobretasa de Bonos de Protección al Ahorro (BPA's) a 3 años Tasa de rendimiento promedio ponderado, en por ciento anual
+   - SF33231 # Sobretasa de Bonos de Protección al Ahorro (BPAT's) a 5 años Tasa de rendimiento promedio ponderado, en por ciento anual
+   - SF17802 # Udibonos a 3 años (1092 días) Tasa de rendimiento promedio ponderado, en por ciento anual
+   - SF17804 # Udibonos a 10 años (3640 días) Tasa de rendimiento promedio ponderado, en por ciento anual
+      # Valores privados
+   - SF40823 #Valores Privados de Corto Plazo Total Corto Plazo Tasa promedio ponderada Porcentajes
+   - SF112136 # Valores privados emitidos en el país Instumentos a mediano plazo emitidos en dólares Tasa de rendimiento al vencimiento promedio ponderada
+      # Tasas de interés bancarias y costos de adaptación
+   - SF331450 # TIIE de fondeo a 1 día Tasa de interés promedio mensual, en por ciento anual
+   - SF41840 # Tasas Mexibor a 1 mes Tasa promedio mensual Por ciento anual
+   - SF4849 # Pagaré Bancario Bursátil a 28 días Tasa de rendimiento en promedio ponderado, en por ciento anual
+   - SF285 # Costo porcentual promedio (CPP) Tasa en por ciento anual
+      # --> DUDA: Tasas de Interés en los Mercados Internacionales, esta solo en diario
+
+   # Tipos de cambio
+   - SF57805 # USD Estados Unidos de América (Dólar)
+   - SF57923 # EUR Unión Monetaria Europea (Euro 4/)
+   - SF229267 # CNH China (Yuan extracontinental 2/)
+   - SF57767 # BRL Brasil (Real)
+   - SF57751 # ARS Argentina (Peso)
+   - SF57777 # COP Colombia (Peso 3/)
+   - SF57773 # CLP Chile (Peso)
+   - SF57875 # PEN Perú (Sol)
+   # Indice del tipo de cambio real
+   - SR28 # Indice de tipo de cambio real, ITCR Cálculo del indice de tipo de cambio real Con precios consumidor y con respecto a 111 países
+   - SR1503 # Indice de precios interno, P Cálculo del indice de tipo de cambio real
+
+   # Indices de Precios al Productor y de Comercio Exterior
+      # Mercancias y servicios finales
+   - SP3 # Mercancías y servicios finales (Por destino y origen de la producción) Mercancías finales con petróleo
+   - SP4 # Principales índices INPP mercancías excluyendo petróleo
+   - SP10131 #Mercancías y servicios finales (Por destino y origen de la producción) INPP mercancías y servcios finales, con petróleo I. Sector económico primario con petróleo
+   - SP77 # Mercancías y servicios finales (Por destino y origen de la producción) INPP mercancías y servcios finales, con petróleo II. Sector económico secundario
+   - SP89 # Mercancías y servicios finales (Por destino y origen de la producción) INPP mercancías y servcios finales, con petróleo III. Sector económico terciario
+      # Servicios intermedios
+   - SP66488 # INPP mercancías y servicios intermedios I. Sector económico primario
+   - SP66469 # INPP mercancías y servicios intermedios II. Sector económico secundario
+   - SP66481 # INPP mercancías y servicios intermedios III. Sector económico terciario
+      # Producción total
+   - SP10133 # INPP producción total I. Sector Económico Primario con Petróleo
+   - SP10136 # INPP producción total II. Sector económico secundario
+   - SP10148 # INPP producción total III. Sector económico terciario
+      #Indice de precios de comercio exterior
+   - SP12754 # INDICE GENERAL DE PRECIOS DE LAS EXPORTACIONES EN DOLARES
+   - SP12755 # INDICE GENERAL DE PRECIOS DE LAS IMPORTACIONES EN DOLARES
+   - SP12753 # INDICE DE TERMINOS DE INTERCAMBIO EN DOLARES
+
+   # Indices de Precios al Consumidor y UDIS
+   - SP1 # IPC Por objeto del gasto Nacional
+   - SP30577 # Indice Nacional de Precios al consumidor Variación mensual
+   - SP74660 # Inflación Subyacente (nueva definición) Mensual
+   - SP74663 # Inflación No subyacente (nueva definición) Mensual
+   # --> DUDA: Incluir otros indicadores? (media truncada, subyacente fundamental)
+
+   # Valores en circulación
+   - SF117754 # Valores Gubernamentales Circulación Total
+   - SF4782 # Indice de precios y cotizaciones Indice general --> DUDA: base 1978?
+   - SF4774 # Valor de las acciones en circulación en la Bolsa Mexicana de Valores Por sector de actividad económica Total
+   - SF4801 # Operaciones en el Mercado Bursátil Valores en Renta Variable en el Mercado de Capitales Total
+...
