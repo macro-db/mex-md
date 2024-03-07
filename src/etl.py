@@ -44,6 +44,10 @@ def transform(df):
         df[serie] = df[serie].transform(remove_ne)
         df[serie] = df[serie].transform(remove_commas)
 
+        df['fecha'] = pd.to_datetime(df['fecha'], dayfirst=True)
+        df.sort_values(by=['fecha'], inplace=True)
+        df['fecha'] = df['fecha'].dt.strftime('%d/%m/%Y')
+
     return df
 
 
@@ -58,6 +62,5 @@ if __name__ == "__main__":
     # Transform the data given the desired transformations
     df = transform(df)
     # Load the output to a csv file
-    print(df.head())
     load(df)
 
