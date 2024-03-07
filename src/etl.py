@@ -46,7 +46,7 @@ def transform(df):
 
 
 def load(df):
-    df.to_csv('..\out_prueba.csv', index=False)
+    df.to_csv('out_prueba.csv', index=False)
 
 
 if __name__ == "__main__":
