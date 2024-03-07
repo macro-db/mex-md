@@ -46,7 +46,8 @@ def transform(df):
 
 
 def load(df):
-    df.to_csv('out_prueba.csv', index=False)
+    today = date.today().strftime("%d_%m_%Y")
+    df.to_csv(f'..\{today}.csv', index=False)
 
 
 if __name__ == "__main__":
