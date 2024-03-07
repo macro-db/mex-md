@@ -6,8 +6,8 @@ import numpy as np
 API_KEY = os.environ['API_KEY']
 
 def data_from_series(base_url, series, unique_series=True):
-    # Create session with proxy and add necessary headers
-    session = session_with_proxy()
+    # Create session and add necessary headers
+    session = requests.Session()
     headers = {'Bmx-Token': API_KEY, 'Accept': 'application/json'}
     # Add desired series to request
     requested_data = base_url + series + '/datos'
