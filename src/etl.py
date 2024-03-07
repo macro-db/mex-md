@@ -58,5 +58,6 @@ if __name__ == "__main__":
     # Transform the data given the desired transformations
     df = transform(df)
     # Load the output to a csv file
+    print(df.head())
     load(df)
 
