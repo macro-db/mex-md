@@ -1,3 +1,4 @@
+import datetime
 import requests
 import os
 import yaml
@@ -30,3 +31,12 @@ def remove_commas(number):
 
 def remove_ne(number):
     return number.replace('N/E', np.nan)
+
+
+def is_last_month(date):
+    date_month = date.split('/')[1]
+
+    actual_date = (datetime.date.today().replace(day=1))
+    last_month = (actual_date - datetime.timedelta(days=1)).strftime('%m')
+
+    return date_month == last_month
