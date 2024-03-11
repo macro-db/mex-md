@@ -3,7 +3,7 @@ import logging
 
 from datetime import date
 
-from utils import data_from_series, read_yaml, remove_commas, remove_ne, is_last_month
+from utils import *
 
 
 def extract():

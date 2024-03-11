@@ -4,7 +4,7 @@ import os
 import yaml
 import numpy as np
 
-API_KEY = os.environ['API_KEY']
+API_KEY = "deaba6cde13b994d8617049af1794580b35cd869725a78686877ea931ccb2d48"
 
 def data_from_series(base_url, series, unique_series=True):
     # Create session and add necessary headers

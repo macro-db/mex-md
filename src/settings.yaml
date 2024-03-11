@@ -1,6 +1,17 @@
 ---
 base_url: https://www.banxico.org.mx/SieAPIRest/service/v1/series/
 series:
+
+   ################################# GRUPO 1 (Output and Income) #################################
+   # Producción:
+      # Indicadores de la actividad industrial
+   - SR17531 # Indice de volumen Total
+   - SR17532 # Indice de volumen Minería
+   - SR17533 # Indice de volumen Electricidad Agua y Gas
+   - SR17534 # Indice de volumen Construcción
+   - SR17535 # Indice de volumen Manufactureras
+
+      ################################# GRUPO 2 (Labor Market) #################################
    # Laboral:
       # Salarios mínimos
    - SL11298 # Salarios Mínimos General Pesos por día --> DUDA: Pesos o no
@@ -15,19 +26,15 @@ series:
       # Tasas de desocupación
    - SL1 # Tasas de desocupación abierta en áreas urbanas Total Porcentaje con respecto a la PEA
 
-   # Producción:
-      # Indicadores de la actividad industrial
-   - SR17531 # Indice de volumen Total
-   - SR17532 # Indice de volumen Minería
-   - SR17533 # Indice de volumen Electricidad Agua y Gas
-   - SR17534 # Indice de volumen Construcción
-   - SR17535 # Indice de volumen Manufactureras
+   ################################# GRUPO 3 (Housing) #################################
+    
 
+   ################################# GRUPO 4 (Consumption, orders, inventories) #################################
    # Encuestas Sobre las Expectativas de los Especialistas en Economía del Sector Privado Percepción del Entorno Económico
    - SR15031 # % de respuestas Actualmente la economía está mejor que hace un año (% de respuestas) Sí
    - SR15028 # % de respuestas Clima de negocios en los próximos 6 meses (% de respuestas) Mejorará
 
-
+   ################################# GRUPO 5 (Money and Credit) #################################
    # Agregados monetarios
    - SF311408 # Agregados Monetarios M1
    - SF311418 # Agregados Monetarios M2
@@ -40,6 +47,7 @@ series:
    - SF29655 # Crédito Interno Neto
    - SF29656 # Reserva Internacional
 
+   ################################# GRUPO 6 (Interest and exchange rates) #################################
    # Tasas y precios de referencia
      # Valores públicos --> DUDA: Tasas promedio ponderadas, o tasas promedio expresadas en por ciento anual
    - SF4830 # Cetes a 28 días Tasa de rendimiento promedio ponderado, en por ciento anual
@@ -74,6 +82,7 @@ series:
    - SR28 # Indice de tipo de cambio real, ITCR Cálculo del indice de tipo de cambio real Con precios consumidor y con respecto a 111 países
    - SR1503 # Indice de precios interno, P Cálculo del indice de tipo de cambio real
 
+   ################################# GRUPO 7 (Prices) #################################
    # Indices de Precios al Productor y de Comercio Exterior
       # Mercancias y servicios finales
    - SP3 # Mercancías y servicios finales (Por destino y origen de la producción) Mercancías finales con petróleo
@@ -101,6 +110,7 @@ series:
    - SP74663 # Inflación No subyacente (nueva definición) Mensual
    # --> DUDA: Incluir otros indicadores? (media truncada, subyacente fundamental)
 
+   ################################# GRUPO 8 (Stock Market) #################################
    # Valores en circulación
    - SF117754 # Valores Gubernamentales Circulación Total
    - SF4782 # Indice de precios y cotizaciones Indice general --> DUDA: base 1978?
