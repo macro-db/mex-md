@@ -26,7 +26,10 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           
       - name: Print X13PATH
-        run: echo "X13PATH is $X13PATH"
+        run: |
+          echo "X13PATH is $X13PATH"
+          echo "Contents of the folder:"
+          ls -al "$X13PATH"
         
       - name: execute py script        
         run: |
