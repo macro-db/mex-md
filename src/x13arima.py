@@ -17,7 +17,7 @@ dta.co2.interpolate(inplace=True)
 dta = dta.resample('M').sum()
 
 
-x13 = sm.tsa.x13_arima_analysis(dta.co2, x12path = "C:/Users/alvar/Desktop/BDE/banxico-md/x13as")
+x13 = sm.tsa.x13_arima_analysis(dta.co2, x12path = "x13as")
 print(x13.trend)
 
 """ plt.plot(dta.co2)
