@@ -6,7 +6,7 @@ permissions:
   contents: write
   
 jobs:
-  runetl:
+  runarima:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo content
