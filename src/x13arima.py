@@ -1,5 +1,6 @@
 import statsmodels.api as sm
 import pandas as pd
+import os
 
 
 """ df = pd.read_csv('data/2024_03_11.csv')
@@ -17,7 +18,8 @@ dta.co2.interpolate(inplace=True)
 dta = dta.resample('M').sum()
 
 
-x13 = sm.tsa.x13_arima_analysis(dta.co2, x12path = "x13as/x13as_ascii.exe")
+print('EEEE',os.getenv("X13PATH", ""))
+x13 = sm.tsa.x13_arima_analysis(dta.co2)
 print(x13.trend)
 
 """ plt.plot(dta.co2)
