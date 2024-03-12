@@ -20,7 +20,7 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: execute py script
         env: 
-          X13PATH: x13as
+          X13PATH: home/runner/work/banxico-md/banxico-md/x13as
         run: |
           python src/x13arima.py
           git config user.name github-actions
