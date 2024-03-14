@@ -7,6 +7,18 @@ from utils import *
 
 
 def extract():
+    """
+    Extracts the data from the API and merges it into a single df.
+    It also creates a log with possible warnings in this step
+
+    Parameters:
+        df (DataFrame): Input DataFrame.
+        column_names (list): List of column names to detect outliers from.
+        threshold (float): Multiplier for the IQR to determine outliers. Default is 1.5.
+
+    Returns:
+        DataFrame: DataFrame with outliers removed.
+    """
     # Create the log
     logging.basicConfig(filename=f"log/{date.today().strftime('%Y_%m_%d')}.log", filemode="w", level=logging.INFO)
 
@@ -24,15 +36,19 @@ def extract():
     for serie in series[1:]:
         try:
             temp_df = pd.DataFrame(data_from_series(base_url, serie)['datos'])
-
+        
+        #If the series is not retrieved, handle the error, and log it
         except Exception:
             logging.error(f'Serie{serie} could not be retreived')
         
+        #For the retrieved series, format the n/e and commas, and merge it 
         else:
             temp_df.rename(columns={"dato": serie}, inplace=True)
+            temp_df[serie] = temp_df[serie].transform(remove_ne)
+            temp_df[serie] = temp_df[serie].transform(remove_commas)
 
+            # Check if the series is not outdated (last observation is last month)
             last_observation_date = temp_df['fecha'].iloc[-1]
-
             if not is_last_month(last_observation_date):
                 logging.warning(f"Serie:{serie} seems to be outdated")
             
@@ -41,34 +57,35 @@ def extract():
     return df
 
 
-def transform(df):
-    """Transforms the raw dataset. If we want to provide both raw and balanced panels,
-    maybe this step should be done later
+def order(df):
     """
+    Orders the raw dataset by date.
 
+    Parameters:
+        df (DataFrame): Input DataFrame.
+
+    Returns:
+        DataFrame: DataFrame with ordered rows.
+    """
+    # Change the date to datetime to be able to order the rows
     df['fecha'] = pd.to_datetime(df['fecha'], dayfirst=True)
+
+    #Sort the df by date
     df.sort_values(by=['fecha'], inplace=True)
+
+    #Change back to string to preserve the raw data format
     df['fecha'] = df['fecha'].dt.strftime('%d/%m/%Y')
-
-    # Read the settings file to get the desired transformation for each series
-    settings = read_yaml("src/settings.yaml")
-    series = settings['series']
-
-    for serie in series:
-        # Turn the column to numeric, and apply its corresponding transformation
-        # df[serie] = pd.to_numeric(df[serie])
-
-        # Remove commas used as digit group separator
-        try:
-            df[serie] = df[serie].transform(remove_ne)
-            df[serie] = df[serie].transform(remove_commas)
-        except KeyError:
-            pass
         
     return df
 
 
 def load(df):
+    """
+    Stores the DataFrame in a csv with todays date.
+
+    Parameters:
+        df (DataFrame): Input DataFrame.
+    """
     today = date.today().strftime("%Y_%m_%d")
     df.to_csv(f'data/{today}.csv', index=False)
 
@@ -77,7 +94,7 @@ if __name__ == "__main__":
     # Extract the data from the data source API
     df = extract()
     # Transform the data given the desired transformations
-    df = transform(df)
+    df = order(df)
     # Load the output to a csv file
     load(df)
 
