@@ -40,3 +40,41 @@ def is_last_month(date):
     last_month = (actual_date - datetime.timedelta(days=1)).strftime('%m')
 
     return date_month == last_month
+
+
+def transformation(tcode, x):
+    n = len(x)
+    small = 1e-10  # Define your small value here
+
+    if tcode == 1:  # Level (no transformation)
+        y = x
+
+    elif tcode == 2:  # First difference
+        y = np.diff(x, axis=0)
+
+    elif tcode == 3:  # Second difference
+        y = np.diff(x, n=2, axis=0)
+
+    elif tcode == 4:  # Natural log
+        y = np.where(np.min(x) < small, np.nan, np.log(x))
+
+    elif tcode == 5:  # First difference of natural log
+        if np.min(x) > small:
+            y = np.diff(np.log(x), axis=0)
+        else:
+            y = np.full(n-1, np.nan)  # Output NaNs if condition is not met
+
+    elif tcode == 6:  # Second difference of natural log
+        if np.min(x) > small:
+            y = np.diff(np.log(x), n=2, axis=0)
+        else:
+            y = np.full(n-2, np.nan)  # Output NaNs if condition is not met
+
+    elif tcode == 7:  # First difference of percent change
+        y1 = np.diff(x / x[:-1], axis=0)
+        y = np.diff(y1, axis=0)
+
+    else:
+        raise ValueError("Invalid transformation code")
+
+    return y
