@@ -1,6 +1,5 @@
 import datetime
 import requests
-import os
 import yaml
 import numpy as np
 
@@ -30,7 +29,7 @@ def remove_commas(number):
 
 
 def remove_ne(number):
-    return number.replace('N/E', np.nan)
+    return number.replace('N/E', '')
 
 
 def is_last_month(date):
