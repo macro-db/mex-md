@@ -73,7 +73,7 @@ def slice_df_from_date(df, start_date):
     return df[start_date:]
 
 
-def stationarize_panel(df, series):
+def stationarize_df(df, series):
     """
     Stationarize the specified series in the DataFrame using X13-ARIMA analysis.
 
