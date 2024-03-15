@@ -2,7 +2,7 @@
 base_url: https://www.banxico.org.mx/SieAPIRest/service/v1/series/
 
 SP74663:
-   transformation: 5
+   transformation: 1
 SF4782:
-   transformation: 7
+   transformation: 4
 ...
