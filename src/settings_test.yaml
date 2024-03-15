@@ -1,0 +1,8 @@
+---
+base_url: https://www.banxico.org.mx/SieAPIRest/service/v1/series/
+
+SP74663:
+   transformation: 5
+SF4782:
+   transformation: 7
+...
