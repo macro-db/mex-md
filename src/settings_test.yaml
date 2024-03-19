@@ -1,8 +1,273 @@
 ---
 base_url: https://www.banxico.org.mx/SieAPIRest/service/v1/series/
-
-SP74663:
+################################# GRUPO 1 (Output and Income) #################################
+# Producción:
+   # Indicadores de la actividad industrial - Series desestazionarizadas
+SR17536: # Indice de volumen Total
    transformation: 1
-SF4782:
-   transformation: 4
+SR17537: # Indice de volumen Minería
+   transformation: 1
+SR17538: # Indice de volumen Electricidad Agua y Gas
+   transformation: 1
+SR17539: # Indice de volumen Construcción
+   transformation: 1
+SR17540: # Indice de volumen Manufactureras
+   transformation: 1
+   # Indicador Global de la Actividad Económica (IGAE) - Series desestazionarizadas
+SR17693: # Total
+   transformation: 1
+SR17696: # Primario
+   transformation: 1
+SR17699: # Secundario
+   transformation: 1
+SR17702: # Terciario
+   transformation: 1
+   # Porcentaje de uso de capacidad instalada - Promedio mensual
+SR16967:
+   transformation: 1
+
+   ################################# GRUPO 2 (Labor Market) #################################
+# Laboral:
+   # Tasas de desocupación
+SL1: # Tasas de desocupación abierta en áreas urbanas Total Porcentaje con respecto a la PEA
+   transformation: 1
+   # Revisión de salarios contractuales
+SL136: # Número de empresas
+   transformation: 1
+SL137: # Número de personas
+   transformation: 1
+SL138: # Incremento salarial contractual (%)
+   transformation: 1
+
+SL11136: # Salarios contractuales Revisiones salariales Incremento salarial manufacturas (%)
+   transformation: 1
+SL11137: # Salarios contractuales Revisiones salariales Incremento salarial otros sectores (%)
+   transformation: 1
+SL11138: # Salarios contractuales Revisiones salariales Número de trabajadores manufacturas
+   transformation: 1
+SL11139: # Salarios contractuales Revisiones salariales Número de trabajadores otros sectores
+   transformation: 1
+SL2829: # Salarios contractuales Revisiones salariales Incremento salarial empresas públicas (%)
+   transformation: 1
+SL2830: # Salarios contractuales Revisiones salariales Incremento salarial empresas privadas (%)
+   transformation: 1
+
+SL5113: # Número de trabajadores empresas publicas 
+   transformation: 1
+SL5114: # Número de trabajadores empresas privadas
+   transformation: 1
+
+   # Salarios mínimos
+SL11298: # Salarios Mínimos General Pesos por día
+   transformation: 1
+SL11295: # Salarios Mínimos Zona Libre de la Frontera Norte Pesos por día
+   transformation: 1
+   
+   # Remuneraciones y productividad
+SL11439: # Remuneraciones Medias Nominales por Persona Ocupada (Industria Manufacturera)
+   transformation: 1
+SL11453: # Remuneraciones Medias Reales por Persona Ocupada (Industria Manufacturera)
+   transformation: 1
+SL11432: # Remuneraciones Medias Reales por Persona Ocupada (Comercio)
+   transformation: 1
+SL11426: # Remuneraciones Medias Nominales por Persona Ocupada (Comercio) 
+   transformation: 1
+
+################################# GRUPO 3 (Housing) #################################
+   
+
+################################# GRUPO 4 (Consumption, orders, inventories) #################################
+SR17449: # Indice de volumen del indicador mensual del consumo privado en el mercado interior (series desestacionalizadas) Total
+   transformation: 1
+SR17450: # Indice de volumen del indicador mensual del consumo privado en el mercado interior (series desestacionalizadas) Total Bienes y servicios de origen nacional
+   transformation: 1
+SR17451: # Indice de volumen del indicador mensual del consumo privado en el mercado interior (series desestacionalizadas) Total Bienes y servicios de origen nacional Bienes
+   transformation: 1
+SR17452: # Indice de volumen del indicador mensual del consumo privado en el mercado interior (series desestacionalizadas) Total Bienes y servicios de origen nacional Servicios
+   transformation: 1
+SR17453: # Indice de volumen del indicador mensual del consumo privado en el mercado interior (series desestacionalizadas) Total Bienes importados
+   transformation: 1
+
+# Indice Regional de Pedidos Manufactureros (IRPM) 
+SR16882: # IPM - Región Norte (Mes actual Vs. Mes anterior)
+   transformation: 1
+SR16894: # IPM - Región Centro Norte (Mes actual Vs. Mes anterior) 
+   transformation: 1
+SR16906: # IPM - Región Centro (Mes actual Vs. Mes anterior)
+   transformation: 1
+SR16918: # IPM - Región Sur (Mes actual Vs. Mes anterior)
+   transformation: 1
+   
+# Indice Regional de Pedidos No Manufactureros (IRPNM)
+SR2761: # IPNM - Región Norte (Mes actual Vs. Mes anterior)
+   transformation: 1
+SR2768: # IPNM - Región Centro Norte (Mes actual Vs. Mes anterior)
+   transformation: 1
+SR2775: # IPNM - Región Centro (Mes actual Vs. Mes anterior)
+   transformation: 1
+SR2782:  # IPNM - Región Sur (Mes actual Vs. Mes anterior)
+   transformation: 1
+
+# Encuesta mensual de coyuntura, inventarios, empleo y días laborados: Con relación al mes anterior sus inventarios de productos terminados
+SR344: # Aumentaron 
+   transformation: 1
+SR345: # Se quedaron iguales
+   transformation: 1
+
+# Encuesta mensual de coyuntura, inventarios, empleo y días laborados: Indice de confianza de las empresas manufactureras
+SR2140:
+   transformation: 1
+#Subindice del clima de los negocios 
+SR2135:
+   transformation: 1
+
+################################# GRUPO 5 (Money and Credit) #################################
+# Agregados monetarios
+SF311408: # Agregados Monetarios M1
+   transformation: 1
+SF311418: # Agregados Monetarios M2
+   transformation: 1
+SF311433: # Agregados Monetarios M3
+   transformation: 1
+SF311438: # Agregados Monetarios M4
+   transformation: 1
+
+SF29652: # Base Monetaria - Saldos
+   transformation: 1
+SF50739: # Finaciamiento al sector privado, empresas, credito de intermediarios financieros
+   transformation: 1
+SF50740: # Emision de instrumentos de deuda
+   transformation: 1
+SF235719: # Banca comercial Cartera de crédito vigente total al sector privado 1/ Saldos nominales en millones de pesos B. Cartera vigente total por destino del crédito B.3 Empresas y personas físicas con actividad empresarial
+   transformation: 1
+SF50737: # Fincianciamento al sector privado, hogares, para vivienda
+   transformation: 1
+SF235716: # Banca comercial Cartera de crédito vigente total al sector privado 1/ Saldos nominales en millones de pesos B. Cartera vigente total por destino del crédito B.2 Vivienda
+   transformation: 1
+SF50736: # Fincianciamento al sector privado, hogares, para consumo
+   transformation: 1
+
+################################# GRUPO 6 (Interest and exchange rates) #################################
+# Tasas y precios de referencia
+SF61745: # Tasa objetivo
+   transformation: 1
+   # Valores públicos
+SF282: # Cetes 28 días Tasa de rendimiento promedio mensual, en por ciento anual
+   transformation: 1
+SF3338: # Cetes 91 días Tasa de rendimiento promedio mensual, en por ciento anual
+   transformation: 1
+SF3270: # Cetes 182 días tasa de rendimiento Tasa de rendimiento promedio mensual, en por ciento anual
+   transformation: 1
+SF3367: # Cetes 364 días Tasa de rendimiento promedio mensual, en por ciento anual
+   transformation: 1
+
+SF17990: # Bonos a tasa fija a 3 años Tasa de rendimiento promedio mensual, en por ciento anual
+   transformation: 1
+SF18608: # Bonos a tasa fija a 5 años Tasa de rendimiento promedio mensual, en por ciento anual
+   transformation: 1
+SF33229: # Bonos a tasa fija a 7 años Tasa de rendimiento promedio mensual, en por ciento anual
+   transformation: 1
+SF30057: # Bonos a tasa fija a 10 años Tasa de rendimiento promedio mensual, en por ciento anual
+   transformation: 1
+
+# Tipos de cambio
+SF57805: # USD Estados Unidos de América (Dólar)
+   transformation: 1
+SF57771: # CAD Canadá (Dólar)
+   transformation: 1
+SF57923: # EUR Unión Monetaria Europea (Euro 4/)
+   transformation: 1
+SF229267: # CNH China (Yuan extracontinental 2/)
+   transformation: 1
+
+# Indice del tipo de cambio real
+SR28: # Indice de tipo de cambio real, ITCR Cálculo del indice de tipo de cambio real Con precios consumidor y con respecto a 111 países
+   transformation: 1
+
+   
+################################# GRUPO 7 (Prices) #################################
+# Indices de Precios al Productor y de Comercio Exterior
+   # Mercancias y servicios finales
+SP3: # Mercancías y servicios finales (Por destino y origen de la producción) Mercancías finales con petróleo
+   transformation: 1
+SP4: # Principales índices INPP mercancías excluyendo petróleo
+   transformation: 1
+SP10131: #Mercancías y servicios finales (Por destino y origen de la producción) INPP mercancías y servcios finales, con petróleo I. Sector económico primario con petróleo
+   transformation: 1
+SP77: # Mercancías y servicios finales (Por destino y origen de la producción) INPP mercancías y servcios finales, con petróleo II. Sector económico secundario
+   transformation: 1
+SP89: # Mercancías y servicios finales (Por destino y origen de la producción) INPP mercancías y servcios finales, con petróleo III. Sector económico terciario
+   transformation: 1
+ 
+   # Servicios intermedios
+SP66488: # INPP mercancías y servicios intermedios I. Sector económico primario
+   transformation: 1
+SP66469: # INPP mercancías y servicios intermedios II. Sector económico secundario
+   transformation: 1
+SP66481: # INPP mercancías y servicios intermedios III. Sector económico terciario
+   transformation: 1
+ 
+   # Producción total
+SP10133: # INPP producción total I. Sector Económico Primario con Petróleo
+   transformation: 1
+SP10136: # INPP producción total II. Sector económico secundario
+   transformation: 1
+SP10148: # INPP producción total III. Sector económico terciario
+   transformation: 1
+
+   #Indice de precios de comercio exterior
+SP12754: # INDICE GENERAL DE PRECIOS DE LAS EXPORTACIONES EN DOLARES
+   transformation: 1
+SP12755: # INDICE GENERAL DE PRECIOS DE LAS IMPORTACIONES EN DOLARES
+   transformation: 1
+SP12753: # INDICE DE TERMINOS DE INTERCAMBIO EN DOLARES
+   transformation: 1
+
+# Indices de Precios al Consumidor y UDIS
+SP1: # Precios al Consumidor (INPC) - (SP1)
+   transformation: 1
+
+SP74625: # Subíndices subyacente y complementarios Precios al consumidor (INPC) Subyacente
+   transformation: 1
+SP74626: # Subíndices subyacente y complementarios Precios al consumidor (INPC) Subyacente Mercancías
+   transformation: 1
+SP66540: # Subíndices subyacente y complementarios Precios al consumidor (INPC) Subyacente Mercancías Alimentos, Bebidas y Tabaco
+   transformation: 1
+SP74627: # Subíndices subyacente y complementarios Precios al consumidor (INPC) Subyacente Mercancías Mercancías no Alimenticias
+   transformation: 1
+SP74628: # Subíndices subyacente y complementarios Precios al consumidor (INPC) Subyacente Servicios
+   transformation: 1
+SP66542: # Subíndices subyacente y complementarios Precios al consumidor (INPC) Subyacente Servicios Vivienda
+   transformation: 1
+SP56339: # Subíndices subyacente y complementarios Precios al consumidor (INPC) Subyacente Servicios Educación (colegiaturas)
+   transformation: 1
+SP74629: # Subíndices subyacente y complementarios Precios al consumidor (INPC) Subyacente Servicios Otros Servicios
+   transformation: 1
+
+SP74630: # Subíndices subyacente y complementarios Precios al consumidor (INPC) No Subyacente
+   transformation: 1
+SP56337: # Subíndices subyacente y complementarios Precios al consumidor (INPC) No Subyacente Agropecuarios
+   transformation: 1
+SP56385: # Subíndices subyacente y complementarios Precios al consumidor (INPC) No Subyacente Agropecuarios Frutas y Verduras
+   transformation: 1
+SP56386: # Subíndices subyacente y complementarios Precios al consumidor (INPC) No Subyacente Agropecuarios Pecuarios
+   transformation: 1
+SP74631: # Subíndices subyacente y complementarios Precios al consumidor (INPC) No Subyacente Energéticos y Tarifas Autorizadas por el Gobierno
+   transformation: 1
+SP56373: # Subíndices subyacente y complementarios Precios al consumidor (INPC) No Subyacente Energéticos y Tarifas Autorizadas por el Gobierno Energéticos
+   transformation: 1
+SP74640: # Subíndices subyacente y complementarios Precios al consumidor (INPC) No Subyacente Energéticos y Tarifas Autorizadas por el Gobierno Tarifas Autorizadas por el Gobierno
+   transformation: 1
+
+
+################################# GRUPO 8 (Stock Market) #################################
+# Valores en circulación
+SF117754: # Valores Gubernamentales Circulación Total
+   transformation: 1
+SF4782: # Indice de precios y cotizaciones Indice general
+   transformation: 1
+SF4774: # Valor de las acciones en circulación en la Bolsa Mexicana de Valores Por sector de actividad económica Total
+   transformation: 1
+SF4801: # Operaciones en el Mercado Bursátil Valores en Renta Variable en el Mercado de Capitales Total
+   transformation: 1
 ...

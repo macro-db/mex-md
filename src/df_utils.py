@@ -58,6 +58,19 @@ def set_date_index(df):
     df.set_index('fecha', inplace=True)
     return df
 
+def filter_dates_with_day_01(df):
+    """
+    Filter DataFrame to only include rows with dates that have day 01.
+
+    Parameters:
+        df (DataFrame): Input DataFrame with date index.
+
+    Returns:
+        DataFrame: Filtered DataFrame containing rows with dates having day 01.
+    """
+    filtered_df = df[df.index.day == 1]
+    return filtered_df
+
 
 def slice_df_from_date(df, start_date):
     """

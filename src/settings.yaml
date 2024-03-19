@@ -80,7 +80,6 @@ series:
    - SF57875 # PEN Perú (Sol)
    # Indice del tipo de cambio real
    - SR28 # Indice de tipo de cambio real, ITCR Cálculo del indice de tipo de cambio real Con precios consumidor y con respecto a 111 países
-   - SR1503 # Indice de precios interno, P Cálculo del indice de tipo de cambio real
 
    ################################# GRUPO 7 (Prices) #################################
    # Indices de Precios al Productor y de Comercio Exterior
