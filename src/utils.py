@@ -2,6 +2,7 @@ import datetime
 import requests
 import yaml
 import numpy as np
+import pandas as pd
 
 API_KEY = "deaba6cde13b994d8617049af1794580b35cd869725a78686877ea931ccb2d48"
 
@@ -28,8 +29,11 @@ def remove_commas(number):
     return str(number).replace(',', '')
 
 
-def remove_ne(number):
-    return number.replace('N/E', '')
+def remove_ne(string):
+    if pd.isna(string):
+        return string
+    else:
+        return string.replace('N/E', '')
 
 
 def is_last_month(date):
