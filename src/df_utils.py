@@ -166,7 +166,7 @@ def transformation(tcode, x):
     return y
 
 def apply_transformations(df):
-    settings = read_yaml("src/settings_test.yaml")
+    settings = read_yaml("src/settings.yaml")
     series = {key: value for key, value in settings.items() if key != 'base_url'}
 
     df_transformed = df.copy()

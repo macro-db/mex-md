@@ -7,7 +7,7 @@ from df_utils import order, save, stationarize_df, slice_df_from_date, remove_ou
 if __name__ == "__main__":
 
     # Read yaml file containing the base url, and the series ID, transformation, and desired name in the df
-    settings = read_yaml("src/settings_test.yaml")
+    settings = read_yaml("src/settings.yaml")
     base_url = settings['base_url']
     series = [key for key in settings.keys() if key != 'base_url']
 
