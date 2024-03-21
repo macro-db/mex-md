@@ -1,15 +1,15 @@
 import datetime
 import requests
 import yaml
+import random
 import numpy as np
 import pandas as pd
 
-API_KEY = "deaba6cde13b994d8617049af1794580b35cd869725a78686877ea931ccb2d48"
-
+API_KEY = ["deaba6cde13b994d8617049af1794580b35cd869725a78686877ea931ccb2d48", "abf532f9317fb2f09f9af67285987c8ca93aa63d40497110ba82fe05722a18d2"]
 def data_from_series(base_url, series, unique_series=True):
     # Create session and add necessary headers
     session = requests.Session()
-    headers = {'Bmx-Token': API_KEY, 'Accept': 'application/json'}
+    headers = {'Bmx-Token': random.choice(API_KEY), 'Accept': 'application/json'}
     # Add desired series to request
     requested_data = base_url + series + '/datos'
     response = session.get(requested_data, headers=headers).json()
