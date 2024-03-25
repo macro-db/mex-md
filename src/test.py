@@ -7,7 +7,7 @@ import seaborn as sns
 pd.options.display.max_rows = None
 
 # Read the CSV file into a DataFrame
-df = pd.read_csv('data/sliced_2024_03_21.csv')
+df = pd.read_csv('data/sliced_2024_03_25.csv')
 
 df['fecha'] = pd.to_datetime(df['fecha'], format='%Y-%m-%d')
 df.set_index('fecha', inplace=True)
@@ -29,7 +29,7 @@ def plot_nan_locations(df_group, group_name):
     plt.show()
 
 df_1 = df[['SR17536','SR17537','SR17538','SR17539','SR17540','SR16967']]
-df_2 = df[['SL136','SL137','SL138','SL11136','SL11137','SL11138','SL11139','SL2829','SL2830','SL5113','SL5114','SL11298','SL11295','SL11439','SL11453','SL11432','SL11426']]
+df_2 = df[['444884','SL136','SL137','SL138','SL11136','SL11137','SL11138','SL11139','SL2829','SL2830','SL5113','SL5114','SL11298','SL11295','SL11439','SL11453','SL11432','SL11426']]
 df_4 = df[['SR17449','SR17450','SR17451','SR17452','SR17453','SR16882','SR16894','SR16906','SR16918','SR2761','SR2768','SR2775','SR2782']]
 df_5 = df[['SF311408','SF311418','SF311433','SF311438','SF29652','SF235719','SF235716']]
 df_6 = df[['SF61745','SF282','SF3338','SF3270','SF3367','SF17990','SF18608','SF30057','SF57805','SF57771','SF57923','SF229267','SR28']]

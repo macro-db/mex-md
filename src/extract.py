@@ -6,7 +6,7 @@ from datetime import date
 from utils import *
 
 
-def extract(base_url, series):
+def extract(series):
     """
     Extracts the data from the API and merges it into a single DataFrame.
     It also creates a log with possible warnings during this process.
@@ -29,17 +29,21 @@ def extract(base_url, series):
     # Initialize an empty DataFrame
     df = pd.DataFrame()
 
-    for serie in series:
+    for serie, info in series.items():
+
         try:
-            # Retrieve data for the series
-            temp_df = pd.DataFrame(data_from_series(base_url, serie)['datos'])
+            if info['source'] == 'banxico':
+                # Retrieve data for the series
+                temp_df = data_from_banxico(serie)
+            else:
+                temp_df = data_from_inegi(serie)
+
             
             # Handle the first series separately to initialize the DataFrame
             if df.empty:
-                df = temp_df.rename(columns={"dato": serie})
+                df = temp_df
             else:
                 # Merge the series into the DataFrame
-                temp_df.rename(columns={"dato": serie}, inplace=True)
                 df = df.merge(temp_df, on='fecha', how='outer')
 
             # Check if the series is not outdated (last observation is last month)
