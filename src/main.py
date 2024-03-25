@@ -15,7 +15,7 @@ if __name__ == "__main__":
         .pipe(save) # Save raw csv
         .pipe(set_date_index) # Turn the date column into the index of the df
         .pipe(filter_dates_with_day_01)
-        .pipe(slice_df_from_date, start_date='2000-01-01') # Get only data starting in 2000
+        .pipe(slice_df_from_date, start_date='1985-01-01') # Get only data starting in 2000
         #.pipe(stationarize_df, ['SP74663', 'SF4782']) #Stationarize selected columns
         #.pipe(remove_outliers, ['SP74663', 'SF4782']) # Remove outliers
         #.pipe(apply_transformations) 
