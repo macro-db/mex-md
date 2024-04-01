@@ -28,12 +28,12 @@ def plot_nan_locations(df_group, group_name):
     plt.tight_layout()
     plt.show()
 
-df_1 = df[['SR17536','SR17537','SR17538','SR17539','SR17540','SR16967']]
+df_1 = df[['SR17536','SR17537','SR17538','SR17539','SR17540','737219','737226','737233','737268','SR16967']]
 df_2 = df[['444884','SL136','SL137','SL138','SL11136','SL11137','SL11138','SL11139','SL2829','SL2830','SL5113','SL5114','SL11298','SL11295','SL11439','SL11453','SL11432','SL11426']]
 df_4 = df[['SR17449','SR17450','SR17451','SR17452','SR17453','SR16882','SR16894','SR16906','SR16918','SR2761','SR2768','SR2775','SR2782']]
 df_5 = df[['SF311408','SF311418','SF311433','SF311438','SF29652','SF235719','SF235716']]
 df_6 = df[['SF61745','SF282','SF3338','SF3270','SF3367','SF17990','SF18608','SF30057','SF57805','SF57771','SF57923','SF229267','SR28']]
-df_7 = df[['SP12754','SP12755','SP12753','SP1','SP74625','SP74626','SP66540','SP74627','SP74628','SP66542','SP56339','SP74629','SP74630','SP56337','SP56385','SP56386','SP74631','SP56373','SP74640']]
+df_7 = df[['SP12754','SP12755','SP12753','673095','673096','673097','673098','673099','673100','SP1','SP74625','SP74626','SP66540','SP74627','SP74628','SP66542','SP56339','SP74629','SP74630','SP56337','SP56385','SP56386','SP74631','SP56373','SP74640']]
 df_8 = df[['SF117754','SF4782','SF4774','SF4801']]
 
 
@@ -67,7 +67,6 @@ for column in df.columns:
     # Count NaNs in the column
     na_count = df[column].isna().sum()
 
-    http://www.investmentscience.com/Content/howtoArticles/MLE_for_OR_mean_reverting.pdf
     
     plt.figure(figsize=(10, 6))
     plt.plot(df.index, df[column])

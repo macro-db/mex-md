@@ -2,7 +2,7 @@ import pandas as pd
 
 from extract import extract
 from utils import read_yaml
-from df_utils import order, save, stationarize_df, slice_df_from_date, remove_outliers, apply_transformations, set_date_index, filter_dates_with_day_01
+from df_utils import order, save, stationarize_df, slice_df_from_date, remove_outliers, apply_transformations, set_date_index, filter_dates_with_day_01, create_quarterly_data
 
 if __name__ == "__main__":
 
@@ -12,14 +12,14 @@ if __name__ == "__main__":
     df = (
         extract(series) # Extract the data from the data source API
         .pipe(order) # Order the rows by date
-        .pipe(save) # Save raw csv
-        .pipe(set_date_index) # Turn the date column into the index of the df
+        .pipe(save, index=True) # Save raw csv
         .pipe(filter_dates_with_day_01)
         .pipe(slice_df_from_date, start_date='1985-01-01') # Get only data starting in 2000
         #.pipe(stationarize_df, ['SP74663', 'SF4782']) #Stationarize selected columns
         #.pipe(remove_outliers, ['SP74663', 'SF4782']) # Remove outliers
         #.pipe(apply_transformations) 
-        .pipe(save, prefix='sliced_', index=True)
+        .pipe(save, prefix='MD_', index=True)
+        .pipe(create_quarterly_data)
+        .pipe(save, prefix='QD_', index=True)
+
     )
-
-

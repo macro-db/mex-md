@@ -22,9 +22,9 @@ def order(df):
 
     #Sort the df by date
     df.sort_values(by=['fecha'], inplace=True)
+    df.set_index('fecha', inplace=True)
 
-    #Change back to string to preserve the raw data format
-    df['fecha'] = df['fecha'].dt.strftime('%d/%m/%Y')
+    df = df.apply(pd.to_numeric, errors='coerce')
         
     return df
 
@@ -175,3 +175,13 @@ def apply_transformations(df):
         df_transformed[serie] = df_transformed[serie].apply(lambda x: transformation(info['transformation'], x))
     
     return df_transformed
+
+def create_quarterly_data(df):
+
+    # Resample the DataFrame to quarterly frequency
+    quarterly_df = df.resample('QS').mean()  # You can use other methods like sum(), median(), etc. instead of mean() if needed
+    
+    # Forward fill missing values if any
+    quarterly_df = quarterly_df.ffill()
+
+    return quarterly_df
