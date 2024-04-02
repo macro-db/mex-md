@@ -1,8 +1,11 @@
 import pandas as pd
 
+from df_utils import (add_indicators, apply_transformations,
+                      create_quarterly_data, fillna_with_zero,
+                      filter_dates_with_day_01, order, remove_outliers, save,
+                      set_date_index, slice_df_from_date, stationarize_df)
 from extract import extract
 from utils import read_yaml
-from df_utils import order, save, stationarize_df, slice_df_from_date, remove_outliers, apply_transformations, set_date_index, filter_dates_with_day_01, create_quarterly_data
 
 if __name__ == "__main__":
 
@@ -10,16 +13,17 @@ if __name__ == "__main__":
     series = read_yaml("src/settings.yaml")
 
     df = (
-        extract(series) # Extract the data from the data source API
-        .pipe(order) # Order the rows by date
-        .pipe(save, index=True) # Save raw csv
+        extract(series)  # Extract the data from the data source API
+        .pipe(order)  # Order the rows by date
+        .pipe(save, index=True)  # Save raw csv
         .pipe(filter_dates_with_day_01)
-        .pipe(slice_df_from_date, start_date='1985-01-01') # Get only data starting in 2000
+        .pipe(slice_df_from_date, start_date="1985-01-01")  # Get only data starting in 2000
         #.pipe(stationarize_df, ['SP74663', 'SF4782']) #Stationarize selected columns
-        #.pipe(remove_outliers, ['SP74663', 'SF4782']) # Remove outliers
-        #.pipe(apply_transformations) 
-        .pipe(save, prefix='MD_', index=True)
+        #.pipe(remove_outliers)  # Remove outliers
+        #.pipe(fillna_with_zero)
+        #.pipe(apply_transformations)
+        .pipe(save, prefix="MD_", index=True)
         .pipe(create_quarterly_data)
-        .pipe(save, prefix='QD_', index=True)
-
+        .pipe(add_indicators)
+        .pipe(save, prefix="QD_", index=True)
     )
