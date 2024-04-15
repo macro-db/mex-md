@@ -7,7 +7,7 @@ import seaborn as sns
 pd.options.display.max_rows = None
 
 # Read the CSV file into a DataFrame
-df = pd.read_csv("data/MD_2024_04_02.csv")
+df = pd.read_csv("data/MD_2024_04_10.csv")
 
 df["fecha"] = pd.to_datetime(df["fecha"], format="%Y-%m-%d")
 df.set_index("fecha", inplace=True)

@@ -8,6 +8,12 @@ from extract import extract
 from utils import read_yaml
 
 
+# Function to remove leading and trailing NaNs from a series
+def remove_leading_trailing_nans(series):
+    start_index = series.first_valid_index()
+    end_index = series.last_valid_index()
+    return series.loc[start_index:end_index]
+
 def order(df):
     """
     Orders the raw dataset by date.
@@ -88,7 +94,7 @@ def slice_df_from_date(df, start_date):
     return df[start_date:]
 
 
-def stationarize_df(df, series):
+def stationarize_df(df):
     """
     Stationarize the specified series in the DataFrame using X13-ARIMA analysis.
 
@@ -100,20 +106,22 @@ def stationarize_df(df, series):
         None
     """
     # Make a copy of the original DataFrame
-    df_stationarized = df.copy()
+    df_stationarized = pd.DataFrame(index=df.index.copy())
 
     # Apply x13_arima_analysis to each series
-    for column in series:
-        try:
-            # Perform X13-ARIMA analysis
-            x13_result = sm.tsa.x13_arima_analysis(df[column], x12path="x13as")
-        except Exception as e:
-            print(f"Error on X13-ARIMA with series {column}: ", e)
-        else:
-            # Replace the original series with the trend component
-            df_stationarized.loc[:, column] = x13_result.trend
+    for column in df.columns:
+        serie = remove_leading_trailing_nans(df[column])
+        max = 10 * np.max(np.abs(serie))
+        serie.fillna(max, inplace=True)
+        # Perform X13-ARIMA analysis
+        res = sm.tsa.x13_arima_analysis(serie, x12path="x13as", outlier = True)
+        df_stationarized[column] = res.seasadj
 
-    return df_stationarized
+
+        # Replace the original series with the trend component
+        #df_stationarized.loc[:, column] = x13_result.trend
+
+    return res
 
 
 def remove_outliers(df, threshold=10):

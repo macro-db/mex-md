@@ -18,9 +18,9 @@ if __name__ == "__main__":
         .pipe(save, index=True)  # Save raw csv
         .pipe(filter_dates_with_day_01)
         .pipe(slice_df_from_date, start_date="1985-01-01")  # Get only data starting in 2000
-        #.pipe(stationarize_df, ['SP74663', 'SF4782']) #Stationarize selected columns
         #.pipe(remove_outliers)  # Remove outliers
         #.pipe(fillna_with_zero)
+        .pipe(stationarize_df)
         #.pipe(apply_transformations)
         .pipe(save, prefix="MD_", index=True)
         .pipe(create_quarterly_data)
