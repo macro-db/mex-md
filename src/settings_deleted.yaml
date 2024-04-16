@@ -108,4 +108,81 @@ SP10148: # INPP producción total III. Sector económico terciario
 
 ################################# GRUPO 8 (Stock Market) #################################
 
+
+#######ERROR AL USAR X13###############
+SL11137: # Salarios contractuales Revisiones salariales Incremento salarial otros sectores (%)
+   transformation: 1
+   stationary: 0
+   sa: 0
+   group: 2
+   source: banxico
+   
+SL2829: # Salarios contractuales Revisiones salariales Incremento salarial empresas públicas (%)
+   transformation: 1
+   stationary: 0
+   sa: 0
+   group: 2
+   source: banxico
+SL5113: # Número de trabajadores empresas publicas 
+   transformation: 1
+   stationary: 0
+   sa: 0
+   group: 2
+   source: banxico
+   # Salarios mínimos
+SL11298: # Salarios Mínimos General Pesos por día
+   transformation: 1
+   stationary: 0
+   sa: 0
+   group: 2
+   source: banxico
+SL11295: # Salarios Mínimos Zona Libre de la Frontera Norte Pesos por día
+   transformation: 1
+   stationary: 0
+   sa: 0
+   group: 2
+   source: banxico
+SF61745: # Tasa objetivo
+   transformation: 1
+   stationary: 0
+   sa: 0
+   group: 6
+   source: banxico
+SF3338: # Cetes 91 días Tasa de rendimiento promedio mensual, en por ciento anual
+   transformation: 1
+   stationary: 0
+   sa: 0
+   group: 6
+   source: banxico
+SF3270: # Cetes 182 días tasa de rendimiento Tasa de rendimiento promedio mensual, en por ciento anual
+   transformation: 1
+   stationary: 0
+   sa: 0
+   group: 6
+   source: banxico
+SF3367: # Cetes 364 días Tasa de rendimiento promedio mensual, en por ciento anual
+   transformation: 1
+   stationary: 0
+   sa: 0
+   group: 6
+   source: banxico
+SF17990: # Bonos a tasa fija a 3 años Tasa de rendimiento promedio mensual, en por ciento anual
+   transformation: 1
+   stationary: 0
+   sa: 0
+   group: 6
+   source: banxico
+SF18608: # Bonos a tasa fija a 5 años Tasa de rendimiento promedio mensual, en por ciento anual
+   transformation: 1
+   stationary: 0
+   sa: 0
+   group: 6
+   source: banxico
+SF30057: # Bonos a tasa fija a 10 años Tasa de rendimiento promedio mensual, en por ciento anual
+   transformation: 1
+   stationary: 0
+   sa: 0
+   group: 6
+   source: banxico
+
 ...

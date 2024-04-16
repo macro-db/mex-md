@@ -105,23 +105,28 @@ def stationarize_df(df):
     Returns:
         None
     """
+    series = read_yaml("src/settings.yaml")
+
     # Make a copy of the original DataFrame
     df_stationarized = pd.DataFrame(index=df.index.copy())
 
     # Apply x13_arima_analysis to each series
     for column in df.columns:
-        serie = remove_leading_trailing_nans(df[column])
-        max = 10 * np.max(np.abs(serie))
-        serie.fillna(max, inplace=True)
-        # Perform X13-ARIMA analysis
-        res = sm.tsa.x13_arima_analysis(serie, x12path="x13as", outlier = True)
-        df_stationarized[column] = res.seasadj
+        try:
+            id = int(column)
+        except Exception:
+            id = column
 
+        if series[id]['sa'] == 0:
+            serie = remove_leading_trailing_nans(df[column])
+            max = 10 * np.max(np.abs(serie))
+            serie.fillna(max, inplace=True)
+            serie.name = str(serie.name)
+            # Perform X13-ARIMA analysis
+            res = sm.tsa.x13_arima_analysis(serie, x12path="x13as", outlier = True)
+            df_stationarized[column] = res.seasadj
 
-        # Replace the original series with the trend component
-        #df_stationarized.loc[:, column] = x13_result.trend
-
-    return res
+    return df_stationarized
 
 
 def remove_outliers(df, threshold=10):

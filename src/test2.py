@@ -17,13 +17,10 @@ series = read_yaml("src/settings.yaml")
 
 
 # Read the CSV file into a DataFrame
-df = pd.read_csv("data/MD_2024_04_10.csv")
+df = pd.read_csv("data/MD_2024_04_16.csv")
 
 df["fecha"] = pd.to_datetime(df["fecha"], format="%Y-%m-%d")
 df.set_index("fecha", inplace=True)
-
-
-df.drop(columns=['SL11137'], inplace=True)
 
 df2 = pd.DataFrame(index=df.index.copy())
 
@@ -40,6 +37,7 @@ for column in df:
         serie.fillna(max, inplace=True)
         
         # Plot the series
+        '''
         plt.figure(figsize=(10, 6))
         plt.plot(serie)
         plt.title(column)
@@ -48,9 +46,9 @@ for column in df:
         plt.grid(True)
         plt.show()
         print('AAAAA: ', pd.infer_freq(serie.index))
+        '''
         res = sm.tsa.x13_arima_analysis(serie, x12path="x13as", outlier=True)
 
-        '''
         if res:
             # Create a grid of plots for the series
             fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(12, 8))
@@ -86,5 +84,3 @@ for column in df:
             # Adjust layout and display the plot
             plt.tight_layout()
             plt.show()
-            '''
-
