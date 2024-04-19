@@ -45,7 +45,6 @@ for column in df:
         plt.ylabel('Value')
         plt.grid(True)
         plt.show()
-        print('AAAAA: ', pd.infer_freq(serie.index))
         '''
         res = sm.tsa.x13_arima_analysis(serie, x12path="x13as", outlier=True)
 

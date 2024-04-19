@@ -74,3 +74,9 @@ def is_last_month(date):
     last_month = (actual_date - datetime.timedelta(days=1)).strftime("%m")
 
     return date_month == last_month
+
+# Function to remove leading and trailing NaNs from a series
+def remove_leading_trailing_nans(series):
+    start_index = series.first_valid_index()
+    end_index = series.last_valid_index()
+    return series.loc[start_index:end_index]

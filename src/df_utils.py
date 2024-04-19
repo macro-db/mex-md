@@ -5,14 +5,8 @@ import pandas as pd
 import statsmodels.api as sm
 
 from extract import extract
-from utils import read_yaml
+from utils import read_yaml, remove_leading_trailing_nans
 
-
-# Function to remove leading and trailing NaNs from a series
-def remove_leading_trailing_nans(series):
-    start_index = series.first_valid_index()
-    end_index = series.last_valid_index()
-    return series.loc[start_index:end_index]
 
 def order(df):
     """
@@ -125,6 +119,9 @@ def stationarize_df(df):
             # Perform X13-ARIMA analysis
             res = sm.tsa.x13_arima_analysis(serie, x12path="x13as", outlier = True)
             df_stationarized[column] = res.seasadj
+        else:
+            df_stationarized[column] = df[column]
+
 
     return df_stationarized
 
