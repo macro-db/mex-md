@@ -51,7 +51,7 @@ def extract(series):
 
             # Check if the series is not outdated (last observation is last month)
             last_observation_date = temp_df["fecha"].iloc[-1]
-            if not is_last_month(last_observation_date):
+            if not is_outdated(last_observation_date):
                 logging.warning(f"Serie:{serie} seems to be outdated")
 
         except Exception as e:

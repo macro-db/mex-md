@@ -113,8 +113,8 @@ def stationarize_df(df):
 
         if series[id]['sa'] == 0:
             serie = remove_leading_trailing_nans(df[column])
-            max = 10 * np.max(np.abs(serie))
-            serie.fillna(max, inplace=True)
+            #max = 100 * np.max(np.abs(serie))
+            #serie.fillna(max, inplace=True)
             serie.name = str(serie.name)
             # Perform X13-ARIMA analysis
             res = sm.tsa.x13_arima_analysis(serie, x12path="x13as", outlier = True)
@@ -153,60 +153,12 @@ def remove_outliers(df, threshold=10):
     return df_no_outliers
 
 
-def fillna_with_zero(df):
-    """
-    Fills NaN values in all columns of a DataFrame with 0.
-
-    Parameters:
-        df (DataFrame): Input DataFrame.
-
-    Returns:
-        DataFrame: DataFrame with NaN values replaced with 0.
-    """
-    return df.fillna(0)
-
-
-def transformation(tcode, x):
-    small = 1e-10  # Defined small value for logs
-
-    if tcode == 1:  # Level (no transformation)
-        y = x
-
-    elif tcode == 2:  # First difference
-        y = np.diff(x, axis=0)
-
-    elif tcode == 3:  # Second difference
-        y = np.diff(x, n=2, axis=0)
-
-    elif tcode == 4:  # Natural log
-        y = np.where(np.min(x) < small, np.nan, np.log(x))
-
-    else:
-        raise ValueError("Invalid transformation code")
-
-    return y
-
-
-def apply_transformations(df):
-    settings = read_yaml("src/settings.yaml")
-    series = {key: value for key, value in settings.items() if key != "base_url"}
-
-    df_transformed = df.copy()
-
-    for serie, info in series.items():
-        df_transformed[serie] = df_transformed[serie].apply(
-            lambda x: transformation(info["transformation"], x)
-        )
-
-    return df_transformed
-
-
 def create_quarterly_data(df):
 
     # Resample the DataFrame to quarterly frequency
     quarterly_df = df.resample(
         "QS"
-    ).mean()  # You can use other methods like sum(), median(), etc. instead of mean() if needed
+    ).mean()
 
     # Forward fill missing values if any
     quarterly_df = quarterly_df.ffill()

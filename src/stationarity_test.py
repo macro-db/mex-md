@@ -2,24 +2,34 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from statsmodels.tsa.stattools import adfuller, kpss
 
-from utils import remove_leading_trailing_nans
+from utils import remove_leading_trailing_nans, transform, read_yaml
 
-df = pd.read_csv("data/MD_2024_04_16.csv")
+df = pd.read_csv("data/MD_2024_04_23.csv")
 df["fecha"] = pd.to_datetime(df["fecha"], format="%Y-%m-%d")
 df.set_index("fecha", inplace=True)
 
 
+settings = read_yaml("src/settings.yaml")
+
+
 print("######### ADF TESTS #########")
 for column in df.columns:
+    try:
+        id = int(column)
+    except Exception:
+        id = column
+
     # Perform the Augmented Dickey-Fuller test
     serie = remove_leading_trailing_nans(df[column])
-    result = adfuller(serie)
+    transformation = settings[id]["transformation"]
+    serie = remove_leading_trailing_nans(transform(serie, transformation))
+    result = adfuller(serie.fillna(0))
 
     plt.figure(figsize=(10, 6))
     plt.plot(serie)
     plt.title(column)
-    plt.xlabel('Date')
-    plt.ylabel('Value')
+    plt.xlabel("Date")
+    plt.ylabel("Value")
     plt.grid(True)
     plt.show()
 

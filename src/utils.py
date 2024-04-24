@@ -7,16 +7,12 @@ import pandas as pd
 import requests
 import yaml
 
-API_KEY = [
-    "deaba6cde13b994d8617049af1794580b35cd869725a78686877ea931ccb2d48",
-    "abf532f9317fb2f09f9af67285987c8ca93aa63d40497110ba82fe05722a18d2",
-]
-
+BANXICO_API_KEY = os.environ.get("BANXICO_API_KEY")
 
 def data_from_banxico(series):
     # Create session and add necessary headers
     session = requests.Session()
-    headers = {"Bmx-Token": random.choice(API_KEY), "Accept": "application/json"}
+    headers = {"Bmx-Token": BANXICO_API_KEY, "Accept": "application/json"}
     # Add desired series to request
     url = f"https://www.banxico.org.mx/SieAPIRest/service/v1/series/{series}/datos"
     response = session.get(url, headers=headers).json()
@@ -67,16 +63,53 @@ def remove_ne(string):
         return string.replace("N/E", "")
 
 
-def is_last_month(date):
+def is_outdated(date):
     date_month = date.split("/")[1]
 
     actual_date = datetime.date.today().replace(day=1)
-    last_month = (actual_date - datetime.timedelta(days=1)).strftime("%m")
+    three_months_ago = (actual_date - datetime.timedelta(days=95)).strftime("%m")
+    recent_months = [(int(three_months_ago) + i) % 12 or 12 for i in range(5)]
 
-    return date_month == last_month
+    return date_month not in recent_months
+
 
 # Function to remove leading and trailing NaNs from a series
 def remove_leading_trailing_nans(series):
     start_index = series.first_valid_index()
     end_index = series.last_valid_index()
     return series.loc[start_index:end_index]
+
+
+def transform(column, transformation):
+    # For quarterly data like GDP, we will compute
+    # annualized percent changes
+    # mult = 4 if column.index.freqstr[0] == 'Q' else 1
+    mult = 1
+
+    # 1 => No transformation
+    if transformation == 1:
+        pass
+    # 2 => First difference
+    elif transformation == 2:
+        column = column.diff()
+    # 3 => Second difference
+    elif transformation == 3:
+        column = column.diff().diff()
+    # 4 => Log
+    elif transformation == 4:
+        column = np.log(column)
+    # 5 => Log first difference, multiplied by 100
+    #      (i.e. approximate percent change)
+    #      with optional multiplier for annualization
+    elif transformation == 5:
+        column = np.log(column).diff() * 100 * mult
+    # 6 => Log second difference, multiplied by 100
+    #      with optional multiplier for annualization
+    elif transformation == 6:
+        column = np.log(column).diff().diff() * 100 * mult
+    # 7 => Exact percent change, multiplied by 100
+    #      with optional annualization
+    elif transformation == 7:
+        column = ((column / column.shift(1)) ** mult - 1.0) * 100
+
+    return column
