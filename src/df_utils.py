@@ -1,3 +1,4 @@
+import logging
 from datetime import date
 
 import numpy as np
@@ -113,12 +114,28 @@ def stationarize_df(df):
 
         if series[id]['sa'] == 0:
             serie = remove_leading_trailing_nans(df[column])
+            serie.name = str(serie.name)
             #max = 100 * np.max(np.abs(serie))
             #serie.fillna(max, inplace=True)
-            serie.name = str(serie.name)
+
+
             # Perform X13-ARIMA analysis
-            res = sm.tsa.x13_arima_analysis(serie, x12path="x13as", outlier = True)
-            df_stationarized[column] = res.seasadj
+            try:
+                res = sm.tsa.x13_arima_analysis(serie, x12path="x13as", outlier = True)
+                df_stationarized[column] = res.seasadj
+            except Exception as e:
+
+                logging.basicConfig(
+                    filename=f"log/{date.today().strftime('%Y_%m_%d')}.log",
+                    filemode="r",
+                    level=logging.INFO,
+                )
+
+                # Log any errors encountered during the extraction process
+                logging.error(f"Serie {serie.name} could not be stationarized: {e}")
+
+                df_stationarized[column] = df[column]
+
         else:
             df_stationarized[column] = df[column]
 

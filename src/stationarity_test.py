@@ -4,7 +4,7 @@ from statsmodels.tsa.stattools import adfuller, kpss
 
 from utils import remove_leading_trailing_nans, transform, read_yaml
 
-df = pd.read_csv("data/MD_2024_04_23.csv")
+df = pd.read_csv("data/DEBUG_2024_05_09.csv")
 df["fecha"] = pd.to_datetime(df["fecha"], format="%Y-%m-%d")
 df.set_index("fecha", inplace=True)
 

@@ -295,7 +295,7 @@ SF235716: # Banca comercial Cartera de crédito vigente total al sector privado 
 # Tasas y precios de referencia
    # Valores públicos
 SF282: # Cetes 28 días Tasa de rendimiento promedio mensual, en por ciento anual
-   transformation: 5
+   transformation: 2
    stationary: 0
    sa: 0
    group: "Group 6"
@@ -342,61 +342,61 @@ SR28: # Indice de tipo de cambio real, ITCR Cálculo del indice de tipo de cambi
 
    #Indice de precios de comercio exterior
 SP12754: # INDICE GENERAL DE PRECIOS DE LAS EXPORTACIONES EN DOLARES
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 SP12755: # INDICE GENERAL DE PRECIOS DE LAS IMPORTACIONES EN DOLARES
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 SP12753: # INDICE DE TERMINOS DE INTERCAMBIO EN DOLARES
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 
 673095: # INPP sin Petróleo y con Servicios
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: INEGI
 
 673096: # INPP con Petróleo y con Servicios
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: INEGI
 
 673097: # Actividades primarias
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: INEGI
 
 673098: # Actividades secundarias sin petróleo
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: INEGI
 
 673099: # Actividades secundarias con petróleo
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: INEGI
 
 673100: # Actividades terciarias
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
@@ -404,99 +404,99 @@ SP12753: # INDICE DE TERMINOS DE INTERCAMBIO EN DOLARES
 
 # Indices de Precios al Consumidor y UDIS
 SP1: # Precios al Consumidor (INPC) - (SP1)
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 
 SP74625: # Subíndices subyacente y complementarios Precios al consumidor (INPC) Subyacente
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 SP74626: # Subíndices subyacente y complementarios Precios al consumidor (INPC) Subyacente Mercancías
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 SP66540: # Subíndices subyacente y complementarios Precios al consumidor (INPC) Subyacente Mercancías Alimentos, Bebidas y Tabaco
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 SP74627: # Subíndices subyacente y complementarios Precios al consumidor (INPC) Subyacente Mercancías Mercancías no Alimenticias
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 SP74628: # Subíndices subyacente y complementarios Precios al consumidor (INPC) Subyacente Servicios
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 SP66542: # Subíndices subyacente y complementarios Precios al consumidor (INPC) Subyacente Servicios Vivienda
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 SP56339: # Subíndices subyacente y complementarios Precios al consumidor (INPC) Subyacente Servicios Educación (colegiaturas)
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 SP74629: # Subíndices subyacente y complementarios Precios al consumidor (INPC) Subyacente Servicios Otros Servicios
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 
 SP74630: # Subíndices subyacente y complementarios Precios al consumidor (INPC) No Subyacente
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 SP56337: # Subíndices subyacente y complementarios Precios al consumidor (INPC) No Subyacente Agropecuarios
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 SP56385: # Subíndices subyacente y complementarios Precios al consumidor (INPC) No Subyacente Agropecuarios Frutas y Verduras
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 SP56386: # Subíndices subyacente y complementarios Precios al consumidor (INPC) No Subyacente Agropecuarios Pecuarios
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 SP74631: # Subíndices subyacente y complementarios Precios al consumidor (INPC) No Subyacente Energéticos y Tarifas Autorizadas por el Gobierno
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 SP56373: # Subíndices subyacente y complementarios Precios al consumidor (INPC) No Subyacente Energéticos y Tarifas Autorizadas por el Gobierno Energéticos
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"
    source: banxico
 SP74640: # Subíndices subyacente y complementarios Precios al consumidor (INPC) No Subyacente Energéticos y Tarifas Autorizadas por el Gobierno Tarifas Autorizadas por el Gobierno
-   transformation: 5
+   transformation: 6
    stationary: 0
    sa: 0
    group: "Group 7"

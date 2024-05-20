@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 from df_utils import *
+from utils import remove_leading_trailing_nans, transform, read_yaml
 
 
 # Function to remove leading and trailing NaNs from a series
@@ -19,7 +20,8 @@ series = read_yaml("src/settings.yaml")
 
 
 # Read the CSV file into a DataFrame
-df = pd.read_csv("data/MD_2024_04_16.csv")
+df = pd.read_csv("data/DEBUG_2024_05_09.csv")
+print(df.columns)
 
 df["fecha"] = pd.to_datetime(df["fecha"], format="%Y-%m-%d")
 df.set_index("fecha", inplace=True)
@@ -32,14 +34,11 @@ for column in df:
     except Exception:
         id = column
 
-    if series[id]["sa"] == 0:
+    if series[id]["sa"] == 0 and column == 'SF235716':
         serie = remove_leading_trailing_nans(df[column])
-        max = 10 * np.max(np.abs(serie))
-        print(max)
-        serie.fillna(max, inplace=True)
+        print(serie[-1])
 
         # Plot the series
-        """
         plt.figure(figsize=(10, 6))
         plt.plot(serie)
         plt.title(column)
@@ -47,8 +46,8 @@ for column in df:
         plt.ylabel('Value')
         plt.grid(True)
         plt.show()
-        """
-        res = sm.tsa.x13_arima_analysis(serie, x12path="x13as", outlier=True)
+
+        res = sm.tsa.x13_arima_analysis(serie, x12path="x13as")
 
         if res:
             # Create a grid of plots for the series
