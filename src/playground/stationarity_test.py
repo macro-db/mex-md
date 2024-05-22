@@ -21,8 +21,6 @@ for column in df.columns:
 
     # Perform the Augmented Dickey-Fuller test
     serie = remove_leading_trailing_nans(df[column])
-    transformation = settings[id]["transformation"]
-    serie = remove_leading_trailing_nans(transform(serie, transformation))
     result = adfuller(serie.fillna(0))
 
     plt.figure(figsize=(10, 6))

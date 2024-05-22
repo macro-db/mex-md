@@ -89,7 +89,7 @@ def slice_df_from_date(df, start_date):
     return df[start_date:]
 
 
-def stationarize_df(df):
+def stationarize_df(df, settings):
     """
     Stationarize the specified series in the DataFrame using X13-ARIMA analysis.
 
@@ -100,7 +100,6 @@ def stationarize_df(df):
     Returns:
         None
     """
-    series = read_yaml("src/settings.yaml")
 
     # Make a copy of the original DataFrame
     df_stationarized = pd.DataFrame(index=df.index.copy())
@@ -112,16 +111,15 @@ def stationarize_df(df):
         except Exception:
             id = column
 
-        if series[id]['sa'] == 0:
+        if settings[id]["sa"] == 0:
             serie = remove_leading_trailing_nans(df[column])
             serie.name = str(serie.name)
-            #max = 100 * np.max(np.abs(serie))
-            #serie.fillna(max, inplace=True)
-
+            # max = 100 * np.max(np.abs(serie))
+            # serie.fillna(max, inplace=True)
 
             # Perform X13-ARIMA analysis
             try:
-                res = sm.tsa.x13_arima_analysis(serie, x12path="x13as", outlier = True)
+                res = sm.tsa.x13_arima_analysis(serie, x12path="x13as", outlier=True)
                 df_stationarized[column] = res.seasadj
             except Exception as e:
 
@@ -138,7 +136,6 @@ def stationarize_df(df):
 
         else:
             df_stationarized[column] = df[column]
-
 
     return df_stationarized
 
@@ -173,9 +170,7 @@ def remove_outliers(df, threshold=10):
 def create_quarterly_data(df):
 
     # Resample the DataFrame to quarterly frequency
-    quarterly_df = df.resample(
-        "QS"
-    ).mean()
+    quarterly_df = df.resample("QS").mean()
 
     # Forward fill missing values if any
     quarterly_df = quarterly_df.ffill()
@@ -193,7 +188,10 @@ def add_indicators(df):
     ind_df["fecha"] = ind_df["fecha"].str.replace("01/03", "01/07")
     ind_df["fecha"] = ind_df["fecha"].str.replace("01/02", "01/04")
     ind_df = set_date_index(ind_df)
-    merged_df = df.merge(ind_df, left_index=True, right_index=True, how='left')
 
+    # Stationarized if needed
+    ind_df = stationarize_df(ind_df, settings=indicators)
+    
+    merged_df = df.merge(ind_df, left_index=True, right_index=True, how="left")
 
     return merged_df

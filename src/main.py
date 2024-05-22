@@ -6,7 +6,6 @@ from df_utils import (
     filter_dates_with_day_01,
     order,
     save,
-    set_date_index,
     slice_df_from_date,
     stationarize_df,
 )
@@ -23,8 +22,7 @@ if __name__ == "__main__":
         .pipe(order)  # Order the rows by date
         .pipe(filter_dates_with_day_01)
         .pipe(slice_df_from_date, start_date="1985-01-01")  # Get data starting in 1985
-        .pipe(stationarize_df)
-        # .pipe(transform)
+        .pipe(stationarize_df, settings=series)
         .pipe(save, prefix="MD_", index=True)
         .pipe(create_quarterly_data)
         .pipe(add_indicators) # Add indicators with quarterly data
