@@ -1,4 +1,4 @@
-name: generate csv
+name: generate md_csv
 
 on:
   schedule:
