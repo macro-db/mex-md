@@ -23,7 +23,6 @@ if __name__ == "__main__":
         .pipe(filter_dates_with_day_01)
         .pipe(slice_df_from_date, start_date="1985-01-01")  # Get data starting in 1985
         .pipe(stationarize_df, settings=series)
-        .pipe(save, prefix="MD_", index=True)
         .pipe(create_quarterly_data)
         .pipe(add_indicators) # Add indicators with quarterly data
         .pipe(save, prefix="QD_", index=True)
