@@ -27,7 +27,7 @@ factor_orders = {
     'Group 8': 1,
     'Global': 4}
 
-endog_m = df.loc['2000':, :]
+endog_m = df.loc['1985':, :]
 #print(endog_m['SR17536'])
 
 # Construct the dynamic factor model
