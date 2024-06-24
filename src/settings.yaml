@@ -45,29 +45,14 @@ SR16967:
    source: INEGI
 
    # Revisión de salarios contractuales
-SL136: # Número de empresas
-   sa: 0
-   source: banxico
-SL137: # Número de personas
-   sa: 0
    source: banxico
 SL138: # Incremento salarial contractual (%)
    sa: 0
    source: banxico
-
 SL11136: # Salarios contractuales Revisiones salariales Incremento salarial manufacturas (%)
    sa: 0
    source: banxico
-SL11138: # Salarios contractuales Revisiones salariales Número de trabajadores manufacturas
-   sa: 0
-   source: banxico
-SL11139: # Salarios contractuales Revisiones salariales Número de trabajadores otros sectores
-   sa: 0
-   source: banxico
 SL2830: # Salarios contractuales Revisiones salariales Incremento salarial empresas privadas (%)
-   sa: 0
-   source: banxico
-SL5114: # Número de trabajadores empresas privadas
    sa: 0
    source: banxico
    

@@ -20,7 +20,7 @@ series = read_yaml("src/settings.yaml")
 
 
 # Read the CSV file into a DataFrame
-df = pd.read_csv("data/DEBUG_2024_05_09.csv")
+df = pd.read_csv("data/MD_2024_06_04.csv")
 print(df.columns)
 
 df["fecha"] = pd.to_datetime(df["fecha"], format="%Y-%m-%d")
@@ -34,7 +34,7 @@ for column in df:
     except Exception:
         id = column
 
-    if series[id]["sa"] == 0 and column == 'SF235716':
+    if series[id]["sa"] == 0 and column == 'SL11138':
         serie = remove_leading_trailing_nans(df[column])
         print(serie[-1])
 
