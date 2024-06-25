@@ -25,11 +25,18 @@
 <h2>Repository Structure</h2>
 
 <pre>
+|-- .github/workflows/
+|   |-- md_main.yml            # Updates the monthly dataset
+|   |-- qd_main.yml            # Updates the quarterly dataset
 |-- data/
-    |-- MD_YYYY_MM_DD.csv       # Monthly updated dataset
-    |-- QD_YYYY_MM_DD.csv       # Quarterly updated dataset
-|-- README.md                   
-</pre>
+|   |-- MD_YYYY_MM_DD.csv      # Monthly updated dataset
+|   |-- QD_YYYY_MM_DD.csv      # Quarterly updated dataset
+|-- log/                       # Log files (if a series stop working, it will show up here)
+|-- src/                       # Source code
+|-- x13as/                     # X-ARIMA13 seasonal adjustement
+|-- README.md
+|-- requirements.txt           # Requirements file in case you want to run the code locally
+</pre>                
 
 <p>The <code>data/</code> folder contains the archived datasets in CSV format. The files are named using the format <code>MD_YYYY_MM_DD</code> for the monthly database and <code>QD_YYYY_MM_DD</code> for the quarterly database, where <code>YYYY</code> represents the year, <code>MM</code> represents the month, and <code>DD</code> represents the day of the dataset. This allows users to replicate past results with specific data versions.</p>
 
