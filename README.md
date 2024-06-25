@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Monthly and Quarterly Mexican Macroeconomic Database</title>
-</head>
 <body>
 
 <h1>Monthly and Quarterly Macroeconomic Database</h1>
