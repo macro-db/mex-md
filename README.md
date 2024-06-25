@@ -2,7 +2,7 @@
 <html>
 <body>
 
-<h1>Monthly and Quarterly Macroeconomic Database</h1>
+<h1>Monthly and Quarterly Mexican Macroeconomic Database</h1>
 
 <p>This repository hosts a collection of macroeconomic datasets designed to support empirical research and analysis in economics. The database is updated monthly and quarterly to reflect the latest economic indicators from the Bank of Mexico and Instituto Nacional de Estadística y Geografía (INEGI).</p>
 
