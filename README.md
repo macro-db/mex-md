@@ -49,7 +49,7 @@
 <p>If you use this dataset in your research or publication, please cite it as follows:</p>
 
 <p><em>Example citation:</em><br>
-Author(s), "Monthly and Quarterly Macroeconomic Database", GitHub repository, (Year), <a href="https://github.com/ymacro-db/mex-db">https://github.com/ymacro-db/mex-db</a>.</p>
+-----
 
 </body>
 </html>
