@@ -62,3 +62,4 @@ def extract(series):
     df = df.applymap(remove_ne).applymap(remove_commas)
 
     return df
+

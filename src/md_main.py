@@ -25,3 +25,4 @@ if __name__ == "__main__":
         .pipe(stationarize_df, settings=series)
         .pipe(save, prefix="MD_", index=True)
     )
+

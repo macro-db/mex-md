@@ -27,3 +27,4 @@ if __name__ == "__main__":
         .pipe(add_indicators) # Add indicators with quarterly data
         .pipe(save, prefix="QD_", index=True)
     )
+

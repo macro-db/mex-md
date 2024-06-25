@@ -195,3 +195,4 @@ def add_indicators(df):
     merged_df = df.merge(ind_df, left_index=True, right_index=True, how="left")
 
     return merged_df
+

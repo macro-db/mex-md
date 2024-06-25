@@ -113,3 +113,4 @@ def transform(column, transformation):
         column = ((column / column.shift(1)) ** mult - 1.0) * 100
 
     return column
+
