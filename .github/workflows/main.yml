@@ -2,7 +2,7 @@ name: generate md_csv
 
 on:
   schedule:
-    - cron: '00 8 * * *'
+    - cron: '00 8 1 * *'
 
 permissions:
   contents: write
