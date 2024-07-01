@@ -2,7 +2,7 @@ name: generate qd_csv
 
 on:
   schedule:
-    - cron: '00 7 1 * *'
+    - cron: '00 7 2 * *'
 
 permissions:
   contents: write
